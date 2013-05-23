@@ -1,0 +1,17 @@
+{
+  "name": "laiz/laiz-error",
+  "description": "Simple error handler",
+  "keywords": ["template"],
+  "homepage": "https://github.com/nishimura/laiz-error",
+  "license": "MIT",
+  "authors": [{
+    "name": "Satoshi Nishimura",
+    "email": "nishim314@gmail.com"
+  }],
+  "autoload": {
+    "psr-0": { "Laiz\\Error\\": "src/" }
+  },
+  "require": {
+    "php": ">=5.3.3"
+  }
+}
