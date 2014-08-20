@@ -78,7 +78,13 @@ class Mail
 
         if (isset($_SERVER)){
             $body .= "\n\n";
+            $body .= '$_SERVER:' . "\n";
             $body .= var_export($_SERVER, true);
+        }
+        if (isset($_REQUEST)){
+            $body .= "\n\n";
+            $body .= '$_REQUEST:' . "\n";
+            $body .= var_export($_REQUEST, true);
         }
 
         return mb_send_mail($this->mailto, $subject, $body);
