@@ -76,6 +76,11 @@ class Mail
         $subject = "[$level]: $msg in $file at $line";
         $body = implode("\n", $data);
 
+        if (isset($_SERVER)){
+            $body .= "\n";
+            $body .= var_export($_SERVER, true);
+        }
+
         return mb_send_mail($this->mailto, $subject, $body);
     }
 
