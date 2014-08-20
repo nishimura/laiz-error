@@ -77,7 +77,7 @@ class Mail
         $body = implode("\n", $data);
 
         if (isset($_SERVER)){
-            $body .= "\n";
+            $body .= "\n\n";
             $body .= var_export($_SERVER, true);
         }
 
