@@ -17,7 +17,7 @@ class Mail
                                  $errcontext = null)
     {
         $reporting = error_reporting();
-        $level = $this->level & $reporting;
+        $level = $this->level & $reporting & $errno;
         if ($level === 0)
             return true;
 
@@ -25,6 +25,7 @@ class Mail
         $warning = E_WARNING | E_USER_WARNING;
         $notice = E_NOTICE | E_USER_NOTICE;
         $strict = E_STRICT;
+        $deprecated = E_DEPRECATED;
         $label = 'Unknown Error';
         switch (true){
         case ($level & $error):
@@ -38,6 +39,9 @@ class Mail
             break;
         case ($level & $strict):
             $label = 'Strict';
+            break;
+        case ($level & $deprecated):
+            $label = 'Deprecated';
             break;
         }
 
